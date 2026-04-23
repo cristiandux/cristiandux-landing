@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cristian DUX — Filmmaker & Branding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  /* ── Reset & Base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #000000;
+    --surface:   #0A0A0A;
+    --surface2:  #111111;
+    --red:       #E50000;
+    --red-dark:  #B50000;
+    --white:     #FFFFFF;
+    --gray:      #737373;
+    --border:    #FFFFFF;
+    --border-w:  2.67px;
+    --shadow-b:  rgb(255,255,255) 4px 4px 0px 0px;
+    --shadow-r:  rgb(229,0,0) 6px 6px 0px 0px;
+    --shadow-lg: rgb(255,255,255) 8px 8px 0px 0px;
+    --radius:    0px;
+    --font:      'Inter', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: var(--font);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    overflow-x: hidden;
+  }
+
+  /* ── Canvas BG ── */
+  #bg-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.18;
+  }
+
+  /* ── Layout ── */
+  .container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  section { position: relative; z-index: 1; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    border-bottom: var(--border-w) solid var(--border);
+    background: var(--bg);
+  }
+
+  nav .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .nav-logo {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--red); }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    text-decoration: none;
+    transition: color 150ms ease;
+  }
+
+  .nav-links a:hover { color: var(--red); }
+
+  .nav-cta {
+    background: var(--red);
+    color: var(--white) !important;
+    padding: 10px 20px;
+    border: var(--border-w) solid var(--red);
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: all 150ms ease;
+    box-shadow: var(--shadow-b);
+  }
+
+  .nav-cta:hover {
+    box-shadow: none !important;
+    transform: translate(4px, 4px);
+    color: var(--white) !important;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    padding-top: 80px;
+    border-bottom: var(--border-w) solid var(--border);
+  }
+
+  .hero-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: var(--border-w) solid var(--border);
+  }
+
+  .hero-left {
+    padding: 48px;
+    border-right: var(--border-w) solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 48px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--white);
+    border: var(--border-w) solid var(--border);
+    padding: 8px 14px;
+    width: fit-content;
+  }
+
+  .dot-red {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--red);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .hero-headline {
+    font-size: clamp(52px, 7vw, 96px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--red);
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    color: var(--gray);
+    max-width: 420px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .hero-right {
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+  }
+
+  .stat {
+    padding: 24px;
+    border: var(--border-w) solid var(--border);
+    margin: -1px;
+  }
+
+  .stat-num {
+    font-size: 48px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--red);
+  }
+
+  .stat-label {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gray);
+    margin-top: 8px;
+  }
+
+  .hero-tagline-block {
+    margin-top: auto;
+    padding-top: 48px;
+  }
+
+  .hero-tagline {
+    font-size: clamp(14px, 1.4vw, 20px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border-top: var(--border-w) solid var(--border);
+    padding-top: 24px;
+    line-height: 1.4;
+  }
+
+  /* marquee strip */
+  .marquee-strip {
+    border-top: var(--border-w) solid var(--border);
+    overflow: hidden;
+    padding: 14px 0;
+    background: var(--red);
+  }
+
+  .marquee-inner {
+    display: flex;
+    gap: 0;
+    white-space: nowrap;
+    animation: marquee 18s linear infinite;
+  }
+
+  .marquee-item {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0 40px;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+
+  .marquee-item::after {
+    content: "✦";
+    margin-left: 40px;
+    opacity: 0.6;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--red);
+    color: var(--white);
+    border: var(--border-w) solid var(--red);
+    padding: 14px 28px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 150ms ease;
+    box-shadow: var(--shadow-b);
+  }
+
+  .btn-primary:hover {
+    box-shadow: none;
+    transform: translate(4px, 4px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--white);
+    border: var(--border-w) solid var(--white);
+    padding: 14px 28px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 150ms ease;
+    box-shadow: var(--shadow-b);
+  }
+
+  .btn-secondary:hover {
+    box-shadow: none;
+    transform: translate(4px, 4px);
+    background: var(--white);
+    color: var(--bg);
+  }
+
+  /* ── SECTION HEADER ── */
+  .section-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 24px;
+    padding: 48px 0 32px;
+    border-bottom: var(--border-w) solid var(--border);
+    margin-bottom: 0;
+  }
+
+  .section-number {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--red);
+  }
+
+  .section-title {
+    font-size: clamp(36px, 5vw, 72px);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    line-height: 1;
+    color: var(--white);
+  }
+
+  /* ── SERVICES ── */
+  #services {
+    border-bottom: var(--border-w) solid var(--border);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .service-card {
+    border-right: var(--border-w) solid var(--border);
+    border-bottom: var(--border-w) solid var(--border);
+    padding: 32px;
+    transition: all 150ms ease;
+    cursor: default;
+    position: relative;
+  }
+
+  .service-card:nth-child(3n) { border-right: none; }
+
+  .service-card:hover {
+    background: var(--surface2);
+  }
+
+  .service-card:hover .service-icon {
+    color: var(--red);
+  }
+
+  .service-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    color: var(--white);
+    transition: color 150ms ease;
+  }
+
+  .service-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 12px;
+  }
+
+  .service-name {
+    font-size: 22px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    color: var(--white);
+  }
+
+  .service-desc {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: var(--gray);
+  }
+
+  .service-arrow {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    font-size: 20px;
+    color: var(--gray);
+    transition: all 150ms ease;
+  }
+
+  .service-card:hover .service-arrow {
+    color: var(--red);
+    transform: translate(3px, -3px);
+  }
+
+  /* ── BIG TEXT DIVIDER ── */
+  .big-text-section {
+    border-bottom: var(--border-w) solid var(--border);
+    padding: 48px;
+    overflow: hidden;
+  }
+
+  .big-display {
+    font-size: clamp(60px, 12vw, 180px);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    line-height: 0.9;
+    white-space: nowrap;
+  }
+
+  .big-display .outline {
+    -webkit-text-stroke: 2px var(--white);
+    color: transparent;
+  }
+
+  .big-display .filled { color: var(--red); }
+
+  /* ── PROCESS ── */
+  #process {
+    border-bottom: var(--border-w) solid var(--border);
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .process-step {
+    border-right: var(--border-w) solid var(--border);
+    padding: 48px 32px;
+  }
+
+  .process-step:last-child { border-right: none; }
+
+  .step-num {
+    font-size: 72px;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    color: var(--surface2);
+    -webkit-text-stroke: 2px var(--gray);
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .step-title {
+    font-size: 18px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+    color: var(--white);
+  }
+
+  .step-desc {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: var(--gray);
+  }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials {
+    border-bottom: var(--border-w) solid var(--border);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .testimonial-card {
+    border-right: var(--border-w) solid var(--border);
+    padding: 48px 32px;
+  }
+
+  .testimonial-card:last-child { border-right: none; }
+
+  .testimonial-quote {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--red);
+    margin-bottom: 20px;
+  }
+
+  .testimonial-text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    color: var(--white);
+    margin-bottom: 32px;
+  }
+
+  .testimonial-author {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-top: var(--border-w) solid var(--border);
+    padding-top: 20px;
+  }
+
+  .author-name {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .author-role {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--gray);
+  }
+
+  /* ── CTA SECTION ── */
+  #cta {
+    border-bottom: var(--border-w) solid var(--border);
+  }
+
+  .cta-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 48px;
+    padding: 96px 48px;
+    border-left: var(--border-w) solid var(--border);
+    border-right: var(--border-w) solid var(--border);
+  }
+
+  .cta-headline {
+    font-size: clamp(40px, 5vw, 80px);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    line-height: 1;
+    color: var(--white);
+  }
+
+  .cta-headline span { color: var(--red); }
+
+  .cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 220px;
+  }
+
+  /* ── FAQ ── */
+  #faq {
+    border-bottom: var(--border-w) solid var(--border);
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .faq-item {
+    border-bottom: var(--border-w) solid var(--border);
+    border-right: var(--border-w) solid var(--border);
+    padding: 32px;
+    cursor: pointer;
+  }
+
+  .faq-item:nth-child(2n) { border-right: none; }
+
+  .faq-item:last-child, .faq-item:nth-last-child(2):nth-child(odd) {
+    border-bottom: none;
+  }
+
+  .faq-question {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .faq-toggle {
+    font-size: 24px;
+    color: var(--red);
+    flex-shrink: 0;
+    transition: transform 300ms ease;
+  }
+
+  .faq-answer {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: var(--gray);
+    margin-top: 16px;
+    display: none;
+  }
+
+  .faq-item.open .faq-answer { display: block; }
+  .faq-item.open .faq-toggle { transform: rotate(45deg); }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: var(--border-w) solid var(--border);
+  }
+
+  .footer-col {
+    padding: 48px 32px;
+    border-right: var(--border-w) solid var(--border);
+  }
+
+  .footer-col:last-child { border-right: none; }
+
+  .footer-logo {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .footer-logo span { color: var(--red); }
+
+  .footer-desc {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: var(--gray);
+  }
+
+  .footer-heading {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 20px;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 150ms ease;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 32px;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-made {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gray);
+  }
+
+  .footer-made span { color: var(--red); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-body { grid-template-columns: 1fr; }
+    .hero-left { border-right: none; border-bottom: var(--border-w) solid var(--border); }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .service-card:nth-child(2n) { border-right: none; }
+    .service-card:nth-child(3n) { border-right: var(--border-w) solid var(--border); }
+    .process-grid { grid-template-columns: 1fr 1fr; }
+    .process-step:nth-child(2n) { border-right: none; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonial-card { border-right: none; border-bottom: var(--border-w) solid var(--border); }
+    .cta-inner { grid-template-columns: 1fr; padding: 48px 24px; }
+    .faq-grid { grid-template-columns: 1fr; }
+    .faq-item { border-right: none; }
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-col { border-right: none; border-bottom: var(--border-w) solid var(--border); }
+    .nav-links { display: none; }
+    .big-display { font-size: clamp(40px, 10vw, 100px); }
+    .hero-stats { grid-template-columns: 1fr 1fr 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { border-right: none; }
+    .process-grid { grid-template-columns: 1fr; }
+    .process-step { border-right: none; border-bottom: var(--border-w) solid var(--border); }
+    .hero-stats { grid-template-columns: 1fr; }
+    .stat { border-bottom: var(--border-w) solid var(--border); }
+    .section-header { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Particle Canvas -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="inner">
+    <a href="#" class="nav-logo">Cristian<span>DUX</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Servicios</a></li>
+      <li><a href="#process">Proceso</a></li>
+      <li><a href="#testimonials">Clientes</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#cta" class="nav-cta">Agenda una llamada gratis →</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-body">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="dot-red"></span>
+        Filmmaker & Branding — España
+      </div>
+
+      <h1 class="hero-headline">
+        Contenidos<br>
+        que <em>conectan</em><br>
+        y convierten.
+      </h1>
+
+      <p class="hero-sub">
+        Soy filmmaker y obsesionado del branding. Convierto ideas en creativos que funcionan, te hacen ganar más dinero y potencian tu marca.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#cta" class="btn-primary">Trabajemos juntos →</a>
+        <a href="#services" class="btn-secondary">Ver servicios ↓</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">50+</div>
+          <div class="stat-label">Proyectos</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">14+</div>
+          <div class="stat-label">Años</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Satisfacción</div>
+        </div>
+      </div>
+
+      <div class="hero-tagline-block">
+        <p class="hero-tagline">
+          Filmmaker y obsesionado<br>
+          del branding.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Marquee -->
+  <div class="marquee-strip">
+    <div class="marquee-inner">
+      <span class="marquee-item">Filmmaking</span>
+      <span class="marquee-item">Edición & Post-producción</span>
+      <span class="marquee-item">Branding</span>
+      <span class="marquee-item">Diseño Web</span>
+      <span class="marquee-item">IA & Automatizaciones</span>
+      <span class="marquee-item">Marketing</span>
+      <span class="marquee-item">Filmmaking</span>
+      <span class="marquee-item">Edición & Post-producción</span>
+      <span class="marquee-item">Branding</span>
+      <span class="marquee-item">Diseño Web</span>
+      <span class="marquee-item">IA & Automatizaciones</span>
+      <span class="marquee-item">Marketing</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section id="services">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-number">01 — Servicios</div>
+        <h2 class="section-title">Lo que puedo<br>hacer por ti.</h2>
+      </div>
+      <a href="#cta" class="btn-primary">Trabaja conmigo →</a>
+    </div>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-icon">🎬</div>
+      <div class="service-name">Filmmaking</div>
+      <div class="service-desc">Grabación profesional con iluminación, audio de calidad y estilo visual adaptado a tu marca. Spots, vídeos corporativos, reels y contenido para redes.</div>
+      <div class="service-arrow">↗</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-icon">✂️</div>
+      <div class="service-name">Edición & Post-producción</div>
+      <div class="service-desc">Edición dinámica con motion graphics, subtítulos animados, color cinematográfico y diseño de sonido.</div>
+      <div class="service-arrow">↗</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-icon">◈</div>
+      <div class="service-name">Branding</div>
+      <div class="service-desc">Diseño de logotipos, tipografía, manual de marca y comunicación de personalidad auténtica para tu negocio.</div>
+      <div class="service-arrow">↗</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-icon">⬡</div>
+      <div class="service-name">Diseño & Desarrollo Web</div>
+      <div class="service-desc">Landing pages, embudos de venta, e-commerce, reparaciones y migraciones web. Páginas que convierten.</div>
+      <div class="service-arrow">↗</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <div class="service-icon">⚡</div>
+      <div class="service-name">IA & Automatizaciones</div>
+      <div class="service-desc">Automatización de procesos, creación de flujos de trabajo y eliminación de tareas repetitivas con inteligencia artificial.</div>
+      <div class="service-arrow">↗</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <div class="service-icon">📡</div>
+      <div class="service-name">Marketing</div>
+      <div class="service-desc">Creativos para Meta / Instagram / Google, contenido orgánico y campañas que conectan con tu audiencia y generan resultados.</div>
+      <div class="service-arrow">↗</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BIG TEXT DIVIDER ── -->
+<div class="big-text-section">
+  <div class="big-display">
+    <span class="outline">Crea</span>
+    <span class="filled">tivos</span>
+    &nbsp;
+    <span class="outline">que</span>
+  </div>
+  <div class="big-display">
+    <span class="filled">Funcionan.</span>
+  </div>
+</div>
+
+<!-- ── PROCESS ── -->
+<section id="process">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-number">02 — Proceso</div>
+        <h2 class="section-title">Cómo trabajo.</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-title">Llamada gratis</div>
+      <div class="step-desc">Hablamos 30 minutos para entender tu proyecto, objetivos y si encajamos. Sin compromiso, sin rollos.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-title">Estrategia</div>
+      <div class="step-desc">Diseño una propuesta a medida con el enfoque creativo, los entregables y el calendario de producción.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-title">Producción</div>
+      <div class="step-desc">Ejecuto el proyecto con máxima calidad. Grabación, edición, diseño o desarrollo — todo bajo un mismo techo.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-title">Entrega</div>
+      <div class="step-desc">Entrego los activos listos para publicar. Soporte post-entrega y revisiones incluidas hasta que estés satisfecho.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-number">03 — Clientes</div>
+        <h2 class="section-title">Lo que dicen<br>mis clientes.</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-quote">★★★★★</div>
+      <p class="testimonial-text">"Cristian transformó nuestra comunicación visual por completo. Los vídeos que produjo para nuestra marca triplicaron el engagement en redes sociales en menos de un mes."</p>
+      <div class="testimonial-author">
+        <span class="author-name">María López</span>
+        <span class="author-role">CEO, Agencia Digital</span>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote">★★★★★</div>
+      <p class="testimonial-text">"El branding que diseñó para nosotros es exactamente lo que necesitábamos. Por fin tenemos una identidad visual que refleja quiénes somos y atrae a nuestro cliente ideal."</p>
+      <div class="testimonial-author">
+        <span class="author-name">Carlos Ruiz</span>
+        <span class="author-role">Fundador, E-commerce</span>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote">★★★★★</div>
+      <p class="testimonial-text">"La landing page que desarrolló convirtió desde el primer día. Además, automatizó nuestros procesos de seguimiento y ahorramos 15 horas semanales de trabajo manual."</p>
+      <div class="testimonial-author">
+        <span class="author-name">Ana Torres</span>
+        <span class="author-role">Directora de Marketing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-inner">
+      <h2 class="cta-headline">
+        ¿Tienes un<br>
+        proyecto?<br>
+        <span>Hablemos.</span>
+      </h2>
+      <div class="cta-actions">
+        <a href="mailto:hola@cristiandux.com" class="btn-primary">Agenda una llamada gratis →</a>
+        <a href="https://cristiandux.com" target="_blank" class="btn-secondary">Ver portfolio ↗</a>
+        <a href="mailto:hola@cristiandux.com" class="btn-secondary">Enviar mensaje →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="faq">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-number">04 — FAQ</div>
+        <h2 class="section-title">Preguntas<br>frecuentes.</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-grid">
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-question">
+        ¿Con qué tipo de clientes trabajas?
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">Trabajo con marcas, emprendedores y empresas de todos los tamaños que quieren comunicar mejor, vender más y diferenciarse de su competencia. Si tienes un proyecto con visión, hablamos.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-question">
+        ¿Cuánto tiempo lleva un proyecto?
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">Depende del alcance. Una landing page puede estar lista en 5-7 días. Un proyecto de branding completo suele llevar 2-3 semanas. La producción de vídeo varía según la complejidad. En la llamada inicial te doy un calendario real.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-question">
+        ¿Trabajas con clientes fuera de España?
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">Sí. La mayoría del trabajo creativo (branding, web, marketing, IA) se puede hacer 100% en remoto. Para proyectos de filmmaking, evalúo cada caso según la localización.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-question">
+        ¿Cómo funciona el pago?
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">Se acuerda un depósito inicial del 50% para comenzar y el resto a la entrega. Para proyectos más largos se establecen hitos de pago. Emito factura siempre.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-question">
+        ¿Puedes encargarte de todo el proyecto?
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">Sí. Ofrezco servicio integral: desde la estrategia creativa hasta la ejecución y entrega. Filmmaking, diseño, web, marketing y automatización bajo un mismo techo.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-question">
+        ¿Incluyes revisiones en el precio?
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">Sí. Cada proyecto incluye rondas de revisión hasta que estés satisfecho con el resultado. Mi objetivo es el 100% de satisfacción — no entrego hasta que tú das el visto bueno.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-col">
+      <div class="footer-logo">Cristian<span>DUX</span></div>
+      <p class="footer-desc">Filmmaker y obsesionado del branding. Convierto ideas en creativos que funcionan, te hacen ganar más dinero y potencian tu marca.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Servicios</div>
+      <ul class="footer-links">
+        <li><a href="#services">Filmmaking</a></li>
+        <li><a href="#services">Edición & Post-producción</a></li>
+        <li><a href="#services">Branding</a></li>
+        <li><a href="#services">Diseño & Desarrollo Web</a></li>
+        <li><a href="#services">IA & Automatizaciones</a></li>
+        <li><a href="#services">Marketing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Contacto</div>
+      <ul class="footer-links">
+        <li><a href="https://cristiandux.com" target="_blank">cristiandux.com ↗</a></li>
+        <li><a href="#cta">Agenda una llamada gratis</a></li>
+        <li><a href="mailto:hola@cristiandux.com">hola@cristiandux.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 CristianDUX — Todos los derechos reservados</span>
+    <span class="footer-made">Hecho con <span>❤</span> en España</span>
+  </div>
+</footer>
+
+<!-- ── PARTICLE CANVAS JS ── -->
+<script>
+(function() {
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, points = [], mouse = { x: -9999, y: -9999 };
+  const N = 80;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function init() {
+    points = [];
+    for (let i = 0; i < N; i++) {
+      points.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        r: Math.random() * 1.5 + 0.5,
+      });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    // sway toward mouse
+    points.forEach(p => {
+      const dx = mouse.x - p.x;
+      const dy = mouse.y - p.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 200) {
+        p.vx += dx * 0.00005;
+        p.vy += dy * 0.00005;
+      }
+      p.vx *= 0.998;
+      p.vy *= 0.998;
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0) p.x = W;
+      if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H;
+      if (p.y > H) p.y = 0;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = '#ffffff';
+      ctx.fill();
+    });
+
+    // lines
+    for (let i = 0; i < points.length; i++) {
+      for (let j = i + 1; j < points.length; j++) {
+        const dx = points[i].x - points[j].x;
+        const dy = points[i].y - points[j].y;
+        const d = Math.sqrt(dx * dx + dy * dy);
+        if (d < 120) {
+          ctx.beginPath();
+          ctx.moveTo(points[i].x, points[i].y);
+          ctx.lineTo(points[j].x, points[j].y);
+          ctx.strokeStyle = `rgba(229,0,0,${(1 - d / 120) * 0.4})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', () => { resize(); init(); });
+  window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+
+  // reduced motion
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  resize();
+  init();
+  draw();
+})();
+</script>
+
+</body>
+</html>
