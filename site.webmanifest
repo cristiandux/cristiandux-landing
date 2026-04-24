@@ -1,0 +1,16 @@
+{
+  "name": "Cristian DUX",
+  "short_name": "CristianDUX",
+  "description": "Filmmaker y Diseñador Web en Barcelona",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#E50000",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

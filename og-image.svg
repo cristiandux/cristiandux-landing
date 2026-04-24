@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#000000"/>
+
+  <!-- Red border frame -->
+  <rect x="24" y="24" width="1152" height="582" fill="none" stroke="#E50000" stroke-width="4"/>
+
+  <!-- Red accent bar top-left -->
+  <rect x="24" y="24" width="160" height="8" fill="#E50000"/>
+
+  <!-- Red accent bar bottom-right -->
+  <rect x="1016" y="598" width="160" height="8" fill="#E50000"/>
+
+  <!-- Corner dots -->
+  <circle cx="24" cy="24" r="6" fill="#E50000"/>
+  <circle cx="1176" cy="24" r="6" fill="#E50000"/>
+  <circle cx="24" cy="606" r="6" fill="#E50000"/>
+  <circle cx="1176" cy="606" r="6" fill="#E50000"/>
+
+  <!-- Main label -->
+  <text x="72" y="112" font-family="Inter, Arial, sans-serif" font-weight="400" font-size="18" fill="#9A9A9A" letter-spacing="4">BARCELONA · ESPAÑA</text>
+
+  <!-- Brand name -->
+  <text x="72" y="240" font-family="Inter, Arial, sans-serif" font-weight="400" font-size="100" fill="#FFFFFF">Cristian</text>
+  <text x="72" y="355" font-family="Inter, Arial, sans-serif" font-weight="900" font-size="100" fill="#E50000">DUX</text>
+
+  <!-- Divider line -->
+  <line x1="72" y1="390" x2="600" y2="390" stroke="#FFFFFF" stroke-width="2"/>
+
+  <!-- Tagline -->
+  <text x="72" y="432" font-family="Inter, Arial, sans-serif" font-weight="400" font-size="26" fill="#FFFFFF">Filmmaker · Diseño Web · Branding</text>
+
+  <!-- Stats -->
+  <text x="72" y="500" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="20" fill="#9A9A9A">50+ Proyectos</text>
+  <text x="72" y="526" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="20" fill="#9A9A9A">14+ Años de experiencia</text>
+  <text x="72" y="552" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="20" fill="#9A9A9A">100% Clientes satisfechos</text>
+
+  <!-- URL -->
+  <text x="1128" y="575" font-family="Inter, Arial, sans-serif" font-weight="400" font-size="16" fill="#9A9A9A" text-anchor="end">cristiandux.com</text>
+
+  <!-- Neobrutalist shadow element -->
+  <rect x="900" y="200" width="220" height="180" fill="none" stroke="#E50000" stroke-width="2"/>
+  <rect x="908" y="208" width="220" height="180" fill="#E50000" opacity="0.15"/>
+  <text x="1010" y="300" font-family="Inter, Arial, sans-serif" font-weight="900" font-size="52" fill="#FFFFFF" text-anchor="middle">▶</text>
+  <text x="1010" y="355" font-family="Inter, Arial, sans-serif" font-weight="400" font-size="14" fill="#9A9A9A" text-anchor="middle">VIDEO · WEB · BRAND</text>
+</svg>
