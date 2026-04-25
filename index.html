@@ -777,7 +777,7 @@
   }
 
   /* TESTIMONIALS */
-  #testimonials { border-bottom: 1px solid var(--border-soft); }
+  #testimonials { border-bottom: 1px solid var(--border-soft); position: relative; overflow: hidden; }
   .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -785,6 +785,271 @@
     padding: 0 32px 80px;
     max-width: 1400px;
     margin: 0 auto;
+  }
+
+  /* Phone mockup stage */
+  .phone-stage {
+    position: relative;
+    padding: 40px 24px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .phone-stage::before {
+    content: '';
+    position: absolute;
+    width: 800px; height: 800px;
+    max-width: 90vw; max-height: 90vw;
+    background: var(--grad-orb);
+    filter: blur(80px);
+    opacity: 0.5;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: drift 18s ease-in-out infinite;
+  }
+  .phone {
+    position: relative;
+    z-index: 1;
+    width: 360px;
+    max-width: 90vw;
+    aspect-ratio: 360/740;
+    background: linear-gradient(145deg, #2a3556 0%, #0f1e44 50%, #050a1a 100%);
+    border-radius: 52px;
+    padding: 14px;
+    box-shadow:
+      0 0 0 2px rgba(127,180,255,0.15),
+      0 30px 80px -10px rgba(0,0,0,0.6),
+      0 0 100px 0 rgba(30,127,255,0.4),
+      inset 0 1px 1px rgba(255,255,255,0.15);
+  }
+  .phone::before, .phone::after {
+    content: '';
+    position: absolute;
+    background: rgba(127,180,255,0.2);
+    border-radius: 4px;
+  }
+  .phone::before {
+    /* side buttons left */
+    width: 3px; height: 80px;
+    left: -3px; top: 130px;
+    box-shadow: 0 100px 0 rgba(127,180,255,0.2), 0 175px 0 rgba(127,180,255,0.2);
+  }
+  .phone::after {
+    /* side button right */
+    width: 3px; height: 110px;
+    right: -3px; top: 160px;
+  }
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    background: #050a1a;
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .phone-screen::before {
+    /* dynamic island */
+    content: '';
+    position: absolute;
+    top: 12px; left: 50%;
+    transform: translateX(-50%);
+    width: 100px; height: 26px;
+    background: #000;
+    border-radius: 999px;
+    z-index: 5;
+  }
+  .phone-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 8px 12px;
+    margin-top: 28px;
+  }
+  .phone-greeting {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .phone-avatar {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--grad);
+    flex-shrink: 0;
+  }
+  .phone-greeting-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  .phone-greeting-hi {
+    font-size: 10px;
+    color: var(--gray);
+    letter-spacing: 0.04em;
+  }
+  .phone-greeting-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+  }
+  .phone-icons {
+    display: flex;
+    gap: 8px;
+  }
+  .phone-icon {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    background: rgba(127,180,255,0.1);
+    border: 1px solid rgba(127,180,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--blue-soft);
+  }
+
+  .phone-hero {
+    background: linear-gradient(135deg, #0a1530 0%, #0a3d91 100%);
+    border: 1px solid rgba(127,180,255,0.2);
+    border-radius: 18px;
+    padding: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  .phone-hero::before {
+    content: '';
+    position: absolute;
+    inset: -50% -30% auto auto;
+    width: 80%; height: 80%;
+    background: var(--grad-orb);
+    filter: blur(20px);
+    opacity: 0.6;
+  }
+  .phone-hero-label {
+    font-size: 9px;
+    color: var(--gray);
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+    position: relative;
+    z-index: 1;
+  }
+  .phone-hero-num {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    background: linear-gradient(180deg, #fff 0%, #7fb4ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+  }
+  .phone-hero-foot {
+    font-size: 9px;
+    color: var(--blue-mist);
+    margin-top: 4px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .phone-section-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 4px 2px;
+  }
+  .phone-section-label span:first-child {
+    font-size: 10px;
+    color: var(--blue-mist);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .phone-section-label span:last-child {
+    font-size: 10px;
+    color: var(--blue-soft);
+  }
+
+  .phone-testimonial {
+    background: rgba(127,180,255,0.06);
+    border: 1px solid rgba(127,180,255,0.15);
+    border-radius: 14px;
+    padding: 11px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .phone-test-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .phone-test-name {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--white);
+  }
+  .phone-test-stars {
+    font-size: 9px;
+    color: var(--blue-soft);
+    letter-spacing: 0.04em;
+  }
+  .phone-test-quote {
+    font-size: 10px;
+    line-height: 1.4;
+    color: var(--blue-mist);
+  }
+  .phone-test-role {
+    font-size: 9px;
+    color: var(--gray);
+    margin-top: 2px;
+  }
+  .phone-test-metric {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(127,180,255,0.15);
+    border: 1px solid rgba(127,180,255,0.25);
+    border-radius: 999px;
+    padding: 2px 8px;
+    font-size: 9px;
+    color: var(--blue-soft);
+    font-weight: 600;
+    width: fit-content;
+    margin-top: 4px;
+  }
+
+  .phone-tabbar {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(127,180,255,0.05);
+    border: 1px solid rgba(127,180,255,0.12);
+    border-radius: 16px;
+    padding: 8px;
+  }
+  .phone-tab {
+    width: 32px; height: 32px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--gray);
+  }
+  .phone-tab.active {
+    background: var(--grad);
+    color: var(--white);
+    box-shadow: 0 0 16px rgba(127,180,255,0.5);
   }
   .testimonial-card {
     background: rgba(15,30,68,0.4);
@@ -1065,6 +1330,9 @@
     .services-grid { grid-template-columns: 1fr 1fr; padding: 0 20px 60px; }
     .process-grid { grid-template-columns: 1fr 1fr; padding: 0 20px 60px; }
     .testimonials-grid { grid-template-columns: 1fr; padding: 0 20px 60px; }
+    .phone-stage { padding: 24px 16px 60px; }
+    .phone { width: 320px; border-radius: 44px; padding: 12px; }
+    .phone-screen { border-radius: 32px; }
 
     .cta-inner {
       grid-template-columns: 1fr;
@@ -1410,33 +1678,72 @@
     </div>
   </div>
 
-  <div class="testimonials-grid">
-    <article class="testimonial-card reveal">
-      <div class="testimonial-quote">★★★★★</div>
-      <p class="testimonial-text">"El equipo de Ikale triplicó nuestra conversión en un mes. La nueva marca abrió mercado fuera de España sin fricción."</p>
-      <div class="testimonial-author">
-        <span class="author-name">María L.</span>
-        <span class="author-role">CEO · E-commerce moda</span>
-      </div>
-    </article>
+  <div class="phone-stage reveal">
+    <div class="phone" aria-hidden="true">
+      <div class="phone-screen">
+        <div class="phone-topbar">
+          <div class="phone-greeting">
+            <div class="phone-avatar"></div>
+            <div class="phone-greeting-text">
+              <span class="phone-greeting-hi">Hola,</span>
+              <span class="phone-greeting-name">Marca</span>
+            </div>
+          </div>
+          <div class="phone-icons">
+            <div class="phone-icon">♡</div>
+            <div class="phone-icon">⚙</div>
+          </div>
+        </div>
 
-    <article class="testimonial-card reveal">
-      <div class="testimonial-quote">★★★★★</div>
-      <p class="testimonial-text">"Web que carga en 800ms y vende desde el día uno. ROI positivo en el primer trimestre, ahora escalando a tres mercados."</p>
-      <div class="testimonial-author">
-        <span class="author-name">Diego R.</span>
-        <span class="author-role">Fundador · SaaS B2B</span>
-      </div>
-    </article>
+        <div class="phone-hero">
+          <div class="phone-hero-label">CRECIMIENTO MEDIO</div>
+          <div class="phone-hero-num">+312%</div>
+          <div class="phone-hero-foot">conversión tras estrategia + rediseño</div>
+        </div>
 
-    <article class="testimonial-card reveal">
-      <div class="testimonial-quote">★★★★★</div>
-      <p class="testimonial-text">"Automatizaciones con IA y campañas integradas. Ahorro de 15h semanales y un pipeline que por fin no se atasca."</p>
-      <div class="testimonial-author">
-        <span class="author-name">Ana P.</span>
-        <span class="author-role">COO · Startup tech</span>
+        <div class="phone-section-label">
+          <span>Casos de éxito</span>
+          <span>Ver todos →</span>
+        </div>
+
+        <div class="phone-testimonial">
+          <div class="phone-test-row">
+            <span class="phone-test-name">María L.</span>
+            <span class="phone-test-stars">★★★★★</span>
+          </div>
+          <p class="phone-test-quote">"Triplicaron conversión en un mes. Abrimos mercado fuera de España sin fricción."</p>
+          <span class="phone-test-role">CEO · E-commerce moda</span>
+          <span class="phone-test-metric">↑ 3× conversión</span>
+        </div>
+
+        <div class="phone-testimonial">
+          <div class="phone-test-row">
+            <span class="phone-test-name">Diego R.</span>
+            <span class="phone-test-stars">★★★★★</span>
+          </div>
+          <p class="phone-test-quote">"Web a 800ms, ROI positivo el primer trimestre. Escalando a tres mercados."</p>
+          <span class="phone-test-role">Fundador · SaaS B2B</span>
+          <span class="phone-test-metric">↑ 3 mercados</span>
+        </div>
+
+        <div class="phone-testimonial">
+          <div class="phone-test-row">
+            <span class="phone-test-name">Ana P.</span>
+            <span class="phone-test-stars">★★★★★</span>
+          </div>
+          <p class="phone-test-quote">"IA + campañas integradas. 15h/semana ahorradas, pipeline limpio."</p>
+          <span class="phone-test-role">COO · Startup tech</span>
+          <span class="phone-test-metric">−15h/sem</span>
+        </div>
+
+        <div class="phone-tabbar">
+          <div class="phone-tab active">⌂</div>
+          <div class="phone-tab">⇄</div>
+          <div class="phone-tab">▥</div>
+          <div class="phone-tab">≡</div>
+        </div>
       </div>
-    </article>
+    </div>
   </div>
 </section>
 
