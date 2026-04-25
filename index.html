@@ -1088,22 +1088,17 @@
     box-shadow: 0 0 16px rgba(127,180,255,0.5);
   }
 
-  /* Hand SVG behind phone */
-  .hand {
+  /* Realistic hand SVG */
+  .hand-real {
     position: absolute;
-    width: 480px;
-    height: auto;
-    bottom: -20px;
+    width: 720px;
+    height: 840px;
+    bottom: -180px;
     left: 50%;
-    transform: translateX(-46%) translateZ(-40px);
-    z-index: 0;
-    filter: drop-shadow(0 30px 40px rgba(0,0,0,0.5));
-    pointer-events: none;
-  }
-  .hand-finger {
-    position: absolute;
+    transform: translateX(-50%) translateZ(20px);
     z-index: 4;
     pointer-events: none;
+    filter: drop-shadow(0 40px 60px rgba(0,0,0,0.55));
   }
 
   /* Testimonials copy column */
@@ -1257,8 +1252,7 @@
     color: var(--gray);
   }
 
-  /* CTA */
-  #cta { border-bottom: 1px solid var(--border-soft); position: relative; }
+  /* CTA — REMOVED, kept selectors below for safety only */
   .cta-inner {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -1470,7 +1464,7 @@
     .testimonials-copy { order: 1; }
     .phone { width: 300px; border-radius: 44px; padding: 11px; }
     .phone-screen { border-radius: 36px; }
-    .hand { width: 380px; bottom: -10px; }
+    .hand-real { width: 540px; height: 640px; bottom: -120px; }
     .copy-stats { grid-template-columns: 1fr 1fr; }
 
     .cta-inner {
@@ -1578,7 +1572,7 @@
       <li><a href="#testimonials">Casos de éxito</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a href="#cta" class="nav-cta">Llamada gratis →</a>
+    <a href="mailto:hola@ikalelabs.com?subject=Hola%20Ikale%20Labs" class="nav-cta">Llamada gratis →</a>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -1588,7 +1582,7 @@
     <a href="#process">Proceso</a>
     <a href="#testimonials">Casos de éxito</a>
     <a href="#faq">FAQ</a>
-    <a href="#cta" class="btn-primary">Llamada gratis →</a>
+    <a href="mailto:hola@ikalelabs.com?subject=Hola%20Ikale%20Labs" class="btn-primary">Llamada gratis →</a>
   </div>
 </nav>
 
@@ -1612,7 +1606,7 @@
       </p>
 
       <div class="hero-actions reveal">
-        <a href="#cta" class="btn-primary">Trabajemos juntos →</a>
+        <a href="mailto:hola@ikalelabs.com?subject=Hola%20Ikale%20Labs" class="btn-primary">Trabajemos juntos →</a>
         <a href="#services" class="btn-secondary">Ver servicios ↓</a>
       </div>
     </div>
@@ -1685,7 +1679,7 @@
       <h2 class="section-title reveal" id="services-title">Soluciones que <em>convierten</em>.</h2>
       <p class="section-lead reveal">Seis disciplinas, un solo equipo. Estrategia, ejecución y entrega bajo el mismo techo. Especialistas senior en cada área.</p>
     </div>
-    <a href="#cta" class="btn-primary reveal">Empezar →</a>
+    <a href="mailto:hola@ikalelabs.com?subject=Hola%20Ikale%20Labs" class="btn-primary reveal">Empezar →</a>
   </div>
 
   <div class="services-grid">
@@ -1819,51 +1813,74 @@
   <div class="phone-stage">
     <div class="phone-col reveal">
       <div class="phone-wrap">
-        <!-- Hand SVG behind phone -->
-        <svg class="hand" viewBox="0 0 480 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Realistic hand illustration: palm behind, thumb wrapping front-left -->
+        <svg class="hand-real" viewBox="0 0 600 700" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
           <defs>
-            <linearGradient id="skinGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#f4d3b6"/>
-              <stop offset="40%" stop-color="#e8b890"/>
-              <stop offset="100%" stop-color="#a87c5a"/>
+            <linearGradient id="skinBase" x1="0.2" y1="0" x2="0.8" y2="1">
+              <stop offset="0%" stop-color="#f5d2b3"/>
+              <stop offset="35%" stop-color="#e6b48f"/>
+              <stop offset="70%" stop-color="#c98e6b"/>
+              <stop offset="100%" stop-color="#8b5d3f"/>
             </linearGradient>
-            <linearGradient id="skinShadow" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="rgba(0,0,0,0.0)"/>
-              <stop offset="100%" stop-color="rgba(0,0,0,0.55)"/>
-            </linearGradient>
-            <radialGradient id="palmHighlight" cx="0.4" cy="0.3" r="0.8">
-              <stop offset="0%" stop-color="rgba(255,255,255,0.35)"/>
-              <stop offset="60%" stop-color="rgba(255,255,255,0)"/>
+            <radialGradient id="palmLight" cx="0.45" cy="0.35" r="0.7">
+              <stop offset="0%" stop-color="rgba(255,240,220,0.55)"/>
+              <stop offset="50%" stop-color="rgba(255,220,190,0.15)"/>
+              <stop offset="100%" stop-color="rgba(255,200,170,0)"/>
             </radialGradient>
-          </defs>
-          <!-- forearm + wrist -->
-          <path d="M 120 600 L 120 440 Q 120 380 180 360 L 320 340 Q 380 340 380 400 L 380 600 Z" fill="url(#skinGrad)"/>
-          <path d="M 120 600 L 120 440 Q 120 380 180 360 L 320 340 Q 380 340 380 400 L 380 600 Z" fill="url(#skinShadow)"/>
-          <!-- palm base behind phone -->
-          <ellipse cx="250" cy="370" rx="160" ry="70" fill="url(#skinGrad)"/>
-          <ellipse cx="250" cy="370" rx="160" ry="70" fill="url(#palmHighlight)"/>
-        </svg>
-
-        <!-- Fingers wrapping front of phone bottom -->
-        <svg class="hand-finger" style="bottom:-30px; left:-10px; width:120px; height:200px;" viewBox="0 0 120 200" aria-hidden="true">
-          <defs>
-            <linearGradient id="fGrad1" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#f4d3b6"/>
-              <stop offset="100%" stop-color="#b88a64"/>
+            <linearGradient id="thumbGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#f0c8a4"/>
+              <stop offset="50%" stop-color="#d49a72"/>
+              <stop offset="100%" stop-color="#9c6644"/>
             </linearGradient>
+            <linearGradient id="thumbHL" x1="0.3" y1="0" x2="0.7" y2="1">
+              <stop offset="0%" stop-color="rgba(255,240,225,0.7)"/>
+              <stop offset="40%" stop-color="rgba(255,220,200,0)"/>
+            </linearGradient>
+            <linearGradient id="fingerKnuckle" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#e8b48c"/>
+              <stop offset="60%" stop-color="#b07a52"/>
+              <stop offset="100%" stop-color="#7a4f30"/>
+            </linearGradient>
+            <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="6"/>
+            </filter>
           </defs>
-          <path d="M 20 200 Q 10 100 40 60 Q 70 30 95 50 Q 110 70 100 110 Q 95 150 80 200 Z" fill="url(#fGrad1)" filter="drop-shadow(0 6px 8px rgba(0,0,0,0.4))"/>
-          <path d="M 30 80 Q 50 70 75 75" stroke="rgba(0,0,0,0.15)" stroke-width="2" fill="none"/>
-        </svg>
-        <svg class="hand-finger" style="bottom:-50px; left:60px; width:100px; height:180px;" viewBox="0 0 100 180" aria-hidden="true">
-          <path d="M 15 180 Q 5 90 30 50 Q 55 25 80 50 Q 95 80 80 130 Q 70 165 55 180 Z" fill="url(#fGrad1)" filter="drop-shadow(0 6px 8px rgba(0,0,0,0.4))"/>
-        </svg>
-        <svg class="hand-finger" style="bottom:-60px; left:130px; width:90px; height:160px;" viewBox="0 0 90 160" aria-hidden="true">
-          <path d="M 12 160 Q 5 80 25 45 Q 50 20 70 45 Q 85 70 75 120 Q 65 150 50 160 Z" fill="url(#fGrad1)" filter="drop-shadow(0 6px 8px rgba(0,0,0,0.4))"/>
-        </svg>
-        <!-- Thumb on right -->
-        <svg class="hand-finger" style="bottom:-20px; right:-30px; width:140px; height:200px; transform: rotate(8deg);" viewBox="0 0 140 200" aria-hidden="true">
-          <path d="M 20 200 Q 10 130 30 80 Q 55 30 100 40 Q 130 60 120 110 Q 105 160 85 200 Z" fill="url(#fGrad1)" filter="drop-shadow(0 6px 8px rgba(0,0,0,0.4))"/>
+
+          <!-- Cast shadow on background -->
+          <ellipse cx="320" cy="660" rx="240" ry="20" fill="rgba(0,0,0,0.5)" filter="url(#softShadow)"/>
+
+          <!-- Forearm rising from bottom-right -->
+          <path d="M 330 700 Q 320 580 360 480 Q 400 410 470 400 Q 540 405 555 470 Q 565 600 540 700 Z"
+                fill="url(#skinBase)"/>
+          <!-- Forearm shading -->
+          <path d="M 330 700 Q 325 600 360 510 L 380 520 Q 360 600 360 700 Z" fill="rgba(0,0,0,0.25)"/>
+          <!-- Wrist crease -->
+          <path d="M 345 540 Q 420 510 540 540" stroke="rgba(80,40,20,0.25)" stroke-width="2" fill="none"/>
+
+          <!-- Palm + back of hand cradling phone bottom -->
+          <path d="M 200 580 Q 180 480 240 420 Q 320 380 420 400 Q 510 420 530 490 Q 545 580 510 640 Q 420 690 300 670 Q 220 650 200 580 Z"
+                fill="url(#skinBase)"/>
+          <path d="M 200 580 Q 180 480 240 420 Q 320 380 420 400 Q 510 420 530 490 Q 545 580 510 640 Q 420 690 300 670 Q 220 650 200 580 Z"
+                fill="url(#palmLight)"/>
+
+          <!-- Knuckle hints on right edge (back of hand visible) -->
+          <ellipse cx="525" cy="475" rx="14" ry="20" fill="url(#fingerKnuckle)" opacity="0.85"/>
+          <ellipse cx="535" cy="510" rx="13" ry="18" fill="url(#fingerKnuckle)" opacity="0.8"/>
+          <ellipse cx="540" cy="545" rx="12" ry="16" fill="url(#fingerKnuckle)" opacity="0.75"/>
+          <ellipse cx="540" cy="580" rx="11" ry="14" fill="url(#fingerKnuckle)" opacity="0.7"/>
+
+          <!-- Thumb wrapping front-left of phone bottom -->
+          <path d="M 110 620 Q 90 480 130 380 Q 160 300 220 290 Q 270 290 285 340 Q 290 400 265 460 Q 240 540 220 620 Q 200 680 160 690 Q 120 685 110 620 Z"
+                fill="url(#thumbGrad)"
+                filter="drop-shadow(8px 12px 20px rgba(0,0,0,0.5))"/>
+          <!-- Thumb highlight -->
+          <path d="M 130 580 Q 130 460 160 380 Q 180 320 220 320 Q 235 350 225 410 Q 200 500 175 580 Z"
+                fill="url(#thumbHL)"/>
+          <!-- Thumb nail hint -->
+          <ellipse cx="240" cy="320" rx="22" ry="18" fill="rgba(255,235,215,0.5)"/>
+          <!-- Thumb knuckle crease -->
+          <path d="M 145 480 Q 175 470 205 475" stroke="rgba(80,40,20,0.35)" stroke-width="2.5" fill="none"/>
+          <path d="M 130 560 Q 165 550 200 555" stroke="rgba(80,40,20,0.25)" stroke-width="2" fill="none"/>
         </svg>
 
         <!-- Phone -->
@@ -1960,30 +1977,13 @@
       <div class="copy-divider"></div>
       <p class="reveal" style="margin-top:0">¿Quieres pasar de leer casos a ser uno? Una llamada basta.</p>
       <div class="copy-cta reveal">
-        <a href="#cta" class="btn-primary">Hablemos →</a>
-        <a href="#cta" class="btn-secondary">Ver más casos ↓</a>
+        <a href="mailto:hola@ikalelabs.com?subject=Hola%20Ikale%20Labs" class="btn-primary">Hablemos →</a>
+        <a href="mailto:hola@ikalelabs.com?subject=Hola%20Ikale%20Labs" class="btn-secondary">Ver más casos ↓</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section id="cta" aria-labelledby="cta-title">
-  <div class="cta-inner">
-    <div>
-      <h2 class="cta-headline reveal" id="cta-title">
-        Una llamada.<br>
-        <em>Cero compromiso.</em>
-      </h2>
-      <p class="cta-sub reveal">30 minutos con el equipo para revisar tu proyecto y darte un plan concreto. Salgas contratando o no, sales con ideas accionables.</p>
-    </div>
-    <div class="cta-actions reveal">
-      <a href="mailto:hola@ikalelabs.com?subject=Llamada%20gratis" class="btn-primary">Agenda llamada gratis →</a>
-      <a href="https://cristiandux.com" target="_blank" rel="noopener" class="btn-secondary">Ver portfolio ↗</a>
-      <a href="mailto:hola@ikalelabs.com" class="btn-secondary">Enviar mensaje →</a>
-    </div>
-  </div>
-</section>
 
 <!-- FAQ -->
 <section id="faq" aria-labelledby="faq-title">
@@ -2074,7 +2074,7 @@
     <div class="footer-col">
       <div class="footer-heading">Contacto</div>
       <ul class="footer-links">
-        <li><a href="#cta">Agenda llamada gratis</a></li>
+        <li><a href="mailto:hola@ikalelabs.com?subject=Hola%20Ikale%20Labs">Agenda llamada gratis</a></li>
         <li><a href="mailto:hola@ikalelabs.com">hola@ikalelabs.com</a></li>
         <li>Proyectos locales, nacionales e internacionales</li>
       </ul>
